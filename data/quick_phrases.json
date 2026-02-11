@@ -1,0 +1,13 @@
+[
+  { "id": "q9", "text": "How are you?", "gloss": "HOW ARE YOU" },
+  { "id": "q10", "text": "I am sick", "gloss": "I AM SICK" },
+  { "id": "q11", "text": "Take care", "gloss": "TAKE CARE" },
+  { "id": "q1", "text": "Hello", "gloss": "HELLO" },
+  { "id": "q2", "text": "Thank you", "gloss": "THANK-YOU" },
+  { "id": "q3", "text": "Yes", "gloss": "YES" },
+  { "id": "q4", "text": "No", "gloss": "NO" },
+  { "id": "q5", "text": "Please help", "gloss": "PLEASE HELP" },
+  { "id": "q6", "text": "Where is the MRT?", "gloss": "WHERE MRT" },
+  { "id": "q7", "text": "I need water", "gloss": "I NEED WATER" },
+  { "id": "q8", "text": "How much?", "gloss": "HOW-MUCH" }
+]

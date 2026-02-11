@@ -1,0 +1,445 @@
+/* Voice Assistant Overlay Styles */
+/* High contrast, accessible design */
+
+#voice-assistant-overlay {
+  --va-bg: #1a1a2e;
+  --va-bg-secondary: #16213e;
+  --va-text: #ffffff;
+  --va-text-secondary: #b8c1ec;
+  --va-primary: #4cc9f0;
+  --va-primary-hover: #72d9f5;
+  --va-danger: #ff6b6b;
+  --va-success: #4ecdc4;
+  --va-warning: #ffd93d;
+  --va-border: #3d5a80;
+  
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2147483647;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Main Panel */
+.va-panel {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 380px;
+  max-height: calc(100vh - 40px);
+  background: var(--va-bg);
+  border: 2px solid var(--va-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.va-panel.va-minimized {
+  transform: translateX(calc(100% + 40px));
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Header */
+.va-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--va-bg-secondary);
+  border-bottom: 1px solid var(--va-border);
+}
+
+.va-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--va-text);
+}
+
+.va-icon {
+  font-size: 24px;
+}
+
+.va-minimize {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: var(--va-text-secondary);
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.va-minimize:hover,
+.va-minimize:focus {
+  background: var(--va-border);
+  color: var(--va-text);
+}
+
+/* Content */
+.va-content {
+  padding: 20px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+/* Status */
+.va-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--va-bg-secondary);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.va-status-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #666;
+  transition: background 0.3s;
+}
+
+.va-status-indicator.va-idle {
+  background: #666;
+}
+
+.va-status-indicator.va-listening {
+  background: var(--va-danger);
+  animation: pulse 1s infinite;
+}
+
+.va-status-indicator.va-thinking {
+  background: var(--va-warning);
+  animation: pulse 0.5s infinite;
+}
+
+.va-status-indicator.va-executing {
+  background: var(--va-primary);
+  animation: spin 1s linear infinite;
+}
+
+.va-status-indicator.va-speaking {
+  background: var(--va-success);
+  animation: pulse 0.8s infinite;
+}
+
+.va-status-indicator.va-awaiting {
+  background: var(--va-warning);
+  animation: blink 0.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.va-status-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--va-text);
+}
+
+/* Sections */
+.va-section {
+  margin-bottom: 16px;
+}
+
+.va-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--va-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.va-transcript,
+.va-response,
+.va-current-step {
+  padding: 12px 16px;
+  background: var(--va-bg-secondary);
+  border-radius: 10px;
+  font-size: 15px;
+  color: var(--va-text);
+  min-height: 48px;
+  word-wrap: break-word;
+}
+
+.va-transcript {
+  border-left: 3px solid var(--va-primary);
+}
+
+.va-response {
+  border-left: 3px solid var(--va-success);
+}
+
+.va-current-step {
+  border-left: 3px solid var(--va-warning);
+}
+
+/* Controls */
+.va-controls {
+  margin-top: 20px;
+}
+
+.va-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.va-btn:focus {
+  outline: 3px solid var(--va-primary);
+  outline-offset: 2px;
+}
+
+.va-btn-primary {
+  width: 100%;
+  background: var(--va-primary);
+  color: #000;
+}
+
+.va-btn-primary:hover {
+  background: var(--va-primary-hover);
+  transform: translateY(-2px);
+}
+
+.va-btn-primary.va-recording {
+  background: var(--va-danger);
+  color: #fff;
+  animation: pulse 1s infinite;
+}
+
+.va-btn-icon {
+  font-size: 20px;
+}
+
+.va-secondary-controls {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.va-btn-secondary {
+  flex: 1;
+  padding: 10px 16px;
+  background: var(--va-bg-secondary);
+  color: var(--va-text);
+  border: 2px solid var(--va-border);
+  font-size: 14px;
+}
+
+.va-btn-secondary:hover {
+  background: var(--va-border);
+}
+
+.va-btn-secondary.va-active {
+  background: var(--va-primary);
+  color: #000;
+  border-color: var(--va-primary);
+}
+
+/* Help section */
+.va-help {
+  margin-top: 20px;
+}
+
+.va-help details {
+  background: var(--va-bg-secondary);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.va-help summary {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--va-text-secondary);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.va-help summary:hover {
+  background: var(--va-border);
+}
+
+.va-help ul {
+  margin: 0;
+  padding: 12px 16px 16px 32px;
+  list-style: disc;
+}
+
+.va-help li {
+  font-size: 13px;
+  color: var(--va-text-secondary);
+  margin-bottom: 6px;
+}
+
+.va-help li strong {
+  color: var(--va-text);
+}
+
+/* FAB Button */
+.va-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  background: var(--va-primary);
+  color: #000;
+  font-size: 28px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(76, 201, 240, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.va-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(76, 201, 240, 0.5);
+}
+
+.va-fab:focus {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.va-panel:not(.va-minimized) ~ .va-fab {
+  opacity: 0.6;
+  transform: scale(0.9);
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  #voice-assistant-overlay {
+    --va-bg: #000000;
+    --va-bg-secondary: #111111;
+    --va-text: #ffffff;
+    --va-border: #ffffff;
+    --va-primary: #00ffff;
+  }
+  
+  .va-panel {
+    border-width: 3px;
+  }
+  
+  .va-btn {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .va-status-indicator,
+  .va-btn,
+  .va-panel,
+  .va-fab {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .va-panel {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-height: calc(100vh - 20px);
+  }
+  
+  .va-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+    font-size: 24px;
+  }
+}
+
+/* Scan highlight (managed by JS) */
+#voice-assistant-scan-highlight {
+  position: fixed;
+  pointer-events: none;
+  z-index: 2147483646;
+  border: 4px solid #00FF00;
+  border-radius: 4px;
+  background: rgba(0, 255, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Audio level bar — visual feedback during recording */
+.va-audio-level-bar {
+  width: 100%;
+  height: 4px;
+  background: #2a2a3e;
+  border-radius: 2px;
+  margin: 8px 0 4px;
+  overflow: hidden;
+}
+
+.va-audio-level-fill {
+  height: 100%;
+  width: 0%;
+  background: #4caf50;
+  border-radius: 2px;
+  transition: width 0.08s ease-out, background-color 0.15s;
+}
+
+/* Wake word indicator */
+.va-wake-indicator {
+  opacity: 0.3;
+  transition: opacity 0.3s, text-shadow 0.3s;
+  font-size: 18px;
+  cursor: default;
+}
+
+.va-wake-indicator.va-wake-active {
+  opacity: 1;
+  text-shadow: 0 0 8px rgba(76, 201, 240, 0.6);
+  animation: va-pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes va-pulse-glow {
+  0%, 100% { text-shadow: 0 0 8px rgba(76, 201, 240, 0.4); }
+  50% { text-shadow: 0 0 16px rgba(76, 201, 240, 0.8); }
+}
+
+/* Continuous mode active indicator */
+.va-continuous-toggle.va-active {
+  background: var(--va-success) !important;
+  color: #000 !important;
+  border-color: var(--va-success) !important;
+}

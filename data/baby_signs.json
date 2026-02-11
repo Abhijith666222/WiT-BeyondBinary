@@ -1,0 +1,9 @@
+[
+  { "id": "baby-milk", "english_gloss": "MILK", "text": "Milk", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-more", "english_gloss": "MORE", "text": "More", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-sleep", "english_gloss": "SLEEP", "text": "Sleep", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-finished", "english_gloss": "FINISHED", "text": "Finished / All done", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-eat", "english_gloss": "EAT", "text": "Eat", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-help", "english_gloss": "HELP", "text": "Help", "sg_context_tags": ["baby", "caregiving"] },
+  { "id": "baby-thank", "english_gloss": "THANK", "text": "Thank you", "sg_context_tags": ["baby", "caregiving"] }
+]

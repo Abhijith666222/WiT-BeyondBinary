@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Refined pastel theme - richer depth, reduced brightness */
+    --background: 340 100% 98%;
+    --foreground: 270 15% 18%;
+    --card: 340 40% 98%;
+    --card-foreground: 270 15% 18%;
+    --primary: 345 60% 85%;
+    --primary-foreground: 270 15% 18%;
+    --muted: 340 25% 95%;
+    --muted-foreground: 270 10% 42%;
+    --accent: 350 42% 75%;
+    --accent-foreground: 270 15% 18%;
+    --border: 340 25% 88%;
+    --ring: 345 55% 72%;
+    /* Raw hex - refined palette */
+    --pastel-pink: #F0BFCF;
+    --dusty-rose: #E8A3B5;
+    --lavender: #CFC2EA;
+    --muted-rose: #E8A3B5;
+    --lavender-tone: #CFC2EA;
+    --soft-peach: #F3C6B2;
+    --text-primary: #2B2B2B;
+    --text-secondary: #6B6B6B;
+    --text-header: #2A2433;
+    --bg-light: #FAF4F7;
+    --bg-lighter: #F4EEF6;
+  }
+
+  .high-contrast {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --primary: 345 65% 78%;
+    --primary-foreground: 0 0% 0%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 20%;
+    --accent: 350 45% 78%;
+    --border: 0 0% 85%;
+    --ring: 345 65% 60%;
+  }
+
+  .reduced-motion * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .dyslexia-friendly-fonts,
+  .dyslexia-friendly-fonts * {
+    font-family: "OpenDyslexic", ui-sans-serif, system-ui, sans-serif !important;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply text-foreground antialiased;
+    background: linear-gradient(180deg, #FAF4F7 0%, #F4EEF6 100%);
+    color: var(--text-primary);
+  }
+
+  body.high-contrast {
+    background: white;
+  }
+
+  /* Page headers - darker for contrast */
+  h1, .page-title {
+    color: var(--text-header);
+  }
+}
+
+/* Glass cards - layered depth, pastel border glow */
+.glass {
+  background: linear-gradient(180deg, rgba(250, 244, 247, 0.95) 0%, rgba(244, 238, 246, 0.9) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 10px 30px rgba(180, 120, 150, 0.18),
+    0 2px 8px rgba(200, 150, 170, 0.10);
+  border: 1px solid rgba(230, 180, 200, 0.35);
+}
+
+.glass-card {
+  @apply glass rounded-[22px] p-6;
+  transition: all 0.25s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 14px 36px rgba(180, 120, 150, 0.22),
+    0 4px 12px rgba(200, 150, 170, 0.12);
+}
+
+/* Gradient mesh - muted pastel */
+.gradient-mesh {
+  background:
+    linear-gradient(180deg, #FAF4F7 0%, #F4EEF6 100%),
+    radial-gradient(ellipse 60% 40% at 80% 10%, rgba(232, 163, 181, 0.2), transparent),
+    radial-gradient(ellipse 50% 35% at 20% 80%, rgba(207, 194, 234, 0.15), transparent);
+}
+
+/* Subtle divider gradient */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230, 180, 200, 0.4), transparent);
+}
+
+/* Icon dimensionality - perspective and drop shadow */
+.icon-elevated {
+  filter: drop-shadow(0 4px 6px rgba(160, 100, 130, 0.25));
+  transform: perspective(600px) rotateX(4deg);
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.icon-elevated:hover {
+  transform: perspective(600px) rotateX(0deg) scale(1.05);
+  filter: drop-shadow(0 6px 10px rgba(160, 100, 130, 0.3));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon-elevated {
+    transform: none;
+  }
+  .icon-elevated:hover {
+    transform: none;
+  }
+  .glass-card:hover {
+    transform: none;
+  }
+}

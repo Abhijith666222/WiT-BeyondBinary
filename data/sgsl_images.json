@@ -1,0 +1,7 @@
+[
+  {"id": "sgsl-milk", "english_gloss": "MILK", "text": "Milk", "image": "/SgSL/milk.png"},
+  {"id": "sgsl-sleep", "english_gloss": "SLEEP", "text": "Sleep", "image": "/SgSL/sleep.png"},
+  {"id": "sgsl-please", "english_gloss": "PLEASE", "text": "Please", "image": "/SgSL/please.png"},
+  {"id": "sgsl-good", "english_gloss": "GOOD", "text": "Good", "image": "/SgSL/good.png"},
+  {"id": "sgsl-bad", "english_gloss": "BAD", "text": "Bad", "image": "/SgSL/bad.png"}
+]

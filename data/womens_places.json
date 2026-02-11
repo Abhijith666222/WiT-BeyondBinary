@@ -1,0 +1,7 @@
+[
+  { "name": "Bloom Café", "type": "women-owned", "category": "cafe", "description": "Women-owned café" },
+  { "name": "Serenity Clinic", "type": "womens-health", "category": "clinic", "description": "Women's health clinic" },
+  { "name": "Community Support Centre", "type": "support", "category": "support", "description": "Community support services" },
+  { "name": "Lotus Wellness", "type": "women-owned", "category": "clinic", "description": "Women-owned wellness clinic" },
+  { "name": "Sisterhood Hub", "type": "support", "category": "support", "description": "Support and resources" }
+]
